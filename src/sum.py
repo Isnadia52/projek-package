@@ -1,3 +1,2 @@
-def sum():
-    print("from sum")
-    print("aaaaa")
+def sum(a, b):
+    print(a + b)
