@@ -36,8 +36,9 @@ def analisis_kolom(data, column_name):
     median = hitung_median(nilai)
     modus, frekuensi_modus = hitung_modus(nilai)
 
-    '''print hasil analisis berdasarkan kolom
-    print rata-rata, median, modus, dan frekuensi modus'''
+    print(f"Nilai rata-rata dari kolom {column_name} adalah: {rata_rata:.2f}")
+    print(f"Median dari kolom {column_name} adalah: {median}")
+    print(f"Modus dari kolom {column_name} adalah: {modus}, dengan frekuensi: {frekuensi_modus}")
 
 def analisis_nama_siswa(data, nama_siswa):
     if 'Nama Siswa' not in data.columns:
@@ -52,22 +53,24 @@ def analisis_nama_siswa(data, nama_siswa):
     median = hitung_median(nilai_siswa)
     modus, frekuensi_modus = hitung_modus(nilai_siswa)
 
-    '''print hasil berdasarkan analisis nama siswa
-    print rata-rata, median, modus, dan frekuensi modus'''
+    print(f"\nNilai rata-rata siswa atas nama {nama_siswa} adalah: {rata_rata:.2f}")
+    print(f"Median dari nilai siswa atas nama {nama_siswa} adalah: {median}")
+    print(f"Modus dari nilai siswa atas nama {nama_siswa} adalah: {modus}, dengan frekuensi: {frekuensi_modus}")
 
-'''input variabel file path, sheet name, column name, dan nama siswa(jika ingin menghitung nilai siswa)'''
-file_path = '''input file_path dari file yang akan dieksekusi'''
-sheet_name = '''input sheet yang akan dihitung'''
-column_name = '''input sesuai kolom yang akan dihitung'''
-nama_siswa = '''input sesuai nama siswa'''
+''' 
+Input variabel file path, sheet name, column name, 
+dan nama siswa (jika ingin menghitung nilai siswa)
+Contoh file_path: 'data/nilai.xlsx'
+'''
+file_path = 'data/nilai.xlsx'                    # Ganti dengan path file yang sesuai
+sheet_name = 'Sheet'                             # Ganti sesuai halaman yang akan dieksekuai
+column_name = 'nama kolom'                       # Ganti sesuai kolom yang akan dieksekusi
+nama_siswa = 'nama siswa'                        # Ganti sesuai nama siswa
 
 try:
     data = pd.read_excel(file_path, sheet_name=sheet_name)
 
-    '''Analisis berdasarkan kolom'''
     analisis_kolom(data, column_name)
-
-    '''Analisis berdasarkan nama siswa'''
     analisis_nama_siswa(data, nama_siswa)
 
 except FileNotFoundError:
