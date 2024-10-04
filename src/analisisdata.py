@@ -1,5 +1,20 @@
 import pandas as pd
 
+def read_data(file_path, sheet_name, column_name):
+    """Fungsi untuk membaca data dari Excel dan melakukan analisis."""
+    try:
+        data = pd.read_excel(file_path, sheet_name=sheet_name)
+
+        # Analisis berdasarkan kolom
+        analisis_kolom(data, column_name)
+
+    except FileNotFoundError:
+        print(f'Error: File "{file_path}" tidak ditemukan.')
+    except ValueError as ve:
+        print(f'Error: {ve}')
+    except Exception as e:
+        print(f'Terjadi kesalahan: {e}')
+
 def hitung_rata_rata(nilai):
     jumlah_nilai = sum(nilai)
     jumlah_data = len(nilai)
@@ -36,46 +51,14 @@ def analisis_kolom(data, column_name):
     median = hitung_median(nilai)
     modus, frekuensi_modus = hitung_modus(nilai)
 
-    print(f"Nilai rata-rata dari kolom {column_name} adalah: {rata_rata:.2f}")
-    print(f"Median dari kolom {column_name} adalah: {median}")
-    print(f"Modus dari kolom {column_name} adalah: {modus}, dengan frekuensi: {frekuensi_modus}")
+    print(f'\nNilai rata-rata dari kolom {column_name}: {rata_rata}')
+    print(f'Nilai median dari kolom {column_name}: {median}')
+    print(f'Nilai modus dari kolom {column_name}: {modus}, Frekuensi: {frekuensi_modus}')
 
-def analisis_nama_siswa(data, nama_siswa):
-    if 'Nama Siswa' not in data.columns:
-        raise ValueError('Kolom "Nama Siswa" tidak ditemukan dalam data.')
-    
-    data_siswa = data[data['Nama Siswa'] == nama_siswa]
-    if data_siswa.empty:
-        raise ValueError(f'Siswa atas nama {nama_siswa} tidak ditemukan dalam data.')
 
-    nilai_siswa = data_siswa.iloc[0, 1:].dropna().astype(float).tolist()  #mengambil semua nilai kecuali nama siswa
-    rata_rata = hitung_rata_rata(nilai_siswa)
-    median = hitung_median(nilai_siswa)
-    modus, frekuensi_modus = hitung_modus(nilai_siswa)
+file_path = ".\..\SAMPEL NILAI PROJEK ALGORITMA.xlsx"
+sheet_name = "Sheet1"           # Ganti dengan nama sheet yang sesuai
+column_name = "Fisika"          # Ganti dengan nama kolom yang sesuai
+nama_siswa = "Juna"             # Ganti dengan nama siswa yang sesuai
 
-    print(f"\nNilai rata-rata siswa atas nama {nama_siswa} adalah: {rata_rata:.2f}")
-    print(f"Median dari nilai siswa atas nama {nama_siswa} adalah: {median}")
-    print(f"Modus dari nilai siswa atas nama {nama_siswa} adalah: {modus}, dengan frekuensi: {frekuensi_modus}")
-
-''' 
-Input variabel file path, sheet name, column name, 
-dan nama siswa (jika ingin menghitung nilai siswa)
-Contoh file_path: 'data/nilai.xlsx'
-'''
-file_path = 'data/nilai.xlsx'                    # Ganti dengan path file yang sesuai
-sheet_name = 'Sheet'                             # Ganti sesuai halaman yang akan dieksekuai
-column_name = 'nama kolom'                       # Ganti sesuai kolom yang akan dieksekusi
-nama_siswa = 'nama siswa'                        # Ganti sesuai nama siswa
-
-try:
-    data = pd.read_excel(file_path, sheet_name=sheet_name)
-
-    analisis_kolom(data, column_name)
-    analisis_nama_siswa(data, nama_siswa)
-
-except FileNotFoundError:
-    print(f'Error: File "{file_path}" tidak ditemukan.')
-except ValueError as ve:
-    print(f'Error: {ve}')
-except Exception as e:
-    print(f'Terjadi kesalahan: {e}')
+read_data(file_path, sheet_name, column_name, nama_siswa)
