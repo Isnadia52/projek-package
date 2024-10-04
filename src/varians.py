@@ -9,8 +9,8 @@ def hitung_varians_sampel(data):
 
 def hitung_varians_populasi(data):
 
-    # """ Menghitung varians sampel
-    # Rumus: o² = (1/n) * Σ(x_i - x̄)² """
+    # """ Menghitung varians populasi
+    # Rumus: o² = (1/n) * Σ(x_i - μ)² """
 
     n = len(data)
     mean = (data) / n
