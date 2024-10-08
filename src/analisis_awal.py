@@ -1,7 +1,7 @@
 import pandas as pd
 
 def read_data(file_path, sheet_name, column_name):
-    """Fungsi untuk membaca data dari Excel dan melakukan analisis."""
+    '''Fungsi untuk membaca data dari Excel dan melakukan analisis.'''
     try:
         data = pd.read_excel(file_path, sheet_name=sheet_name)
 
@@ -16,22 +16,25 @@ def read_data(file_path, sheet_name, column_name):
         print(f'Terjadi kesalahan: {e}')
 
 def hitung_rata_rata(nilai):
+    '''Fungsi untuk menghitung rata-rata dari sekumpulan angka/nilai.'''
     jumlah_nilai = sum(nilai)
-    jumlah_data = len(nilai)
-    nilai_rata_rata = jumlah_nilai / jumlah_data if jumlah_data > 0 else 0
+    banyaknya_nilai = len(nilai)
+    nilai_rata_rata = jumlah_nilai / banyaknya_nilai if banyaknya_nilai > 0 else 0
     return nilai_rata_rata
 
 def hitung_median(nilai):
+    '''Fungsi untuk menentukan median dari sekumpulan nilai.'''
     sorted_nilai = sorted(nilai)
-    jumlah_data = len(sorted_nilai)
-    if jumlah_data % 2 == 1:    # jika jumlah_data ganjil
-        nilai_median = sorted_nilai[jumlah_data // 2]
+    banyaknya_nilai = len(sorted_nilai)
+    if banyaknya_nilai % 2 == 1:    # jika banyaknya nilai berjumlah ganjil
+        nilai_median = sorted_nilai[banyaknya_nilai // 2]
         return nilai_median
-    else:                       # jika jumlah_data genap
-        nilai_median = (sorted_nilai[jumlah_data // 2 - 1] + sorted_nilai[jumlah_data // 2]) / 2
+    else:                           # jika banyaknya nilai berjumlah genap
+        nilai_median = (sorted_nilai[banyaknya_nilai // 2 - 1] + sorted_nilai[banyaknya_nilai // 2]) / 2
         return nilai_median
     
 def hitung_modus(nilai):
+    '''Fungsi untuk menentukan nilai modus dari sekumpulan nilai.'''
     frekuensi = {}
     for value in nilai:
         if value in frekuensi:
@@ -43,6 +46,7 @@ def hitung_modus(nilai):
     return modus, frekuensi_modus
 
 def analisis_kolom(data, column_name):
+    '''Melakukan analisis statistik pada kolom tertentu dari DataFrame.'''
     if column_name not in data.columns:
         raise ValueError(f'Kolom "{column_name}" tidak ditemukan dalam data.')
 
@@ -56,9 +60,8 @@ def analisis_kolom(data, column_name):
     print(f'Nilai modus dari kolom {column_name}: {modus}, Frekuensi: {frekuensi_modus}')
 
 
-file_path = ".\..\SAMPEL NILAI PROJEK ALGORITMA.xlsx"
+file_path = "D:\projek-package\src\SAMPEL NILAI PROJEK ALGORITMA.xlsx" #Ganti dengan file path file yang ingin dihitung statistiknya
 sheet_name = "Sheet1"           # Ganti dengan nama sheet yang sesuai
 column_name = "Fisika"          # Ganti dengan nama kolom yang sesuai
-nama_siswa = "Juna"             # Ganti dengan nama siswa yang sesuai
 
-read_data(file_path, sheet_name, column_name, nama_siswa)
+read_data(file_path, sheet_name, column_name)
