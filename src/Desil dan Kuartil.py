@@ -1,4 +1,3 @@
-
 def hitung_desil(data, k):
     N = len(data)
     '''Rumus untuk menghitung posisi desil ke-k:
@@ -23,24 +22,15 @@ def hitung_desil(data, k):
 def hitung_kuartil(data):
     data.sort()
     N = len(data)
-    
-    # Fungsi untuk menghitung median
-    def median(data):
-        N = len(data)
-        mid = N // 2
-        if N % 2 == 0:
-            return (data[mid - 1] + data[mid]) / 2
-        else:
-            return data[mid]
 
-    Q2 = median(data)  # Kuartil 2 (Median)
-    
-    # Q1 dan Q3
+    # Menghitung Q1
     if N % 2 == 0:
-        Q1 = median(data[:N // 2])  # Pertengahan data bawah
-        Q3 = median(data[N // 2:])  # Pertengahan data atas
+        Q1 = (data[N // 4 - 1] + data[N // 4]) / 2
+        Q2 = (data[N // 2 - 1] + data[N // 2]) / 2
+        Q3 = (data[3 * (N // 4) - 1] + data[3 * (N // 4)]) / 2
     else:
-        Q1 = median(data[:N // 2])  # Pertengahan data bawah
-        Q3 = median(data[N // 2 + 1:])  # Pertengahan data atas
-    
+        Q1 = data[N // 4]
+        Q2 = data[N // 2]
+        Q3 = data[3 * (N // 4)]
+
     return Q1, Q2, Q3
