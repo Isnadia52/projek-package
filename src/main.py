@@ -6,7 +6,7 @@ class StatisticMethod:
 
     def _init_(self, file_path, sheet_name=0):
         """ 
-        Marce
+        Marche
         """
         try:
             data = pd.read_excel(file_path, sheet_name=sheet_name)
@@ -25,19 +25,19 @@ class StatisticMethod:
 
     def mean(self):
         """ 
-        Marce
+        Marche
         """
         pass
 
     def median(self):
         """ 
-        Marce
+        Marche
         """
         pass
 
     def modus(self):
         """ 
-        Marce
+        Marche
         """
         pass
 
