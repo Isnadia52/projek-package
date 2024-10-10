@@ -1,11 +1,10 @@
 import pandas as pd
 
 def read_data(file_path, sheet_name, column_name):
-    '''Fungsi untuk membaca data dari Excel dan melakukan analisis.'''
+    '''Fungsi untuk membaca data dari Excel dan melakukan analisis berdasakan kolom'''
     try:
         data = pd.read_excel(file_path, sheet_name=sheet_name)
 
-        # Analisis berdasarkan kolom
         analisis_kolom(data, column_name)
 
     except FileNotFoundError:
@@ -15,14 +14,14 @@ def read_data(file_path, sheet_name, column_name):
     except Exception as e:
         print(f'Terjadi kesalahan: {e}')
 
-def hitung_rata_rata(nilai):
+def mean(nilai):
     '''Fungsi untuk menghitung rata-rata dari sekumpulan angka/nilai.'''
     jumlah_nilai = sum(nilai)
     banyaknya_nilai = len(nilai)
     nilai_rata_rata = jumlah_nilai / banyaknya_nilai if banyaknya_nilai > 0 else 0
     return nilai_rata_rata
 
-def hitung_median(nilai):
+def median(nilai):
     '''Fungsi untuk menentukan median dari sekumpulan nilai.'''
     sorted_nilai = sorted(nilai)
     banyaknya_nilai = len(sorted_nilai)
@@ -33,7 +32,7 @@ def hitung_median(nilai):
         nilai_median = (sorted_nilai[banyaknya_nilai // 2 - 1] + sorted_nilai[banyaknya_nilai // 2]) / 2
         return nilai_median
     
-def hitung_modus(nilai):
+def modus(nilai):
     '''Fungsi untuk menentukan nilai modus dari sekumpulan nilai.'''
     frekuensi = {}
     for value in nilai:
@@ -51,13 +50,13 @@ def analisis_kolom(data, column_name):
         raise ValueError(f'Kolom "{column_name}" tidak ditemukan dalam data.')
 
     nilai = data[column_name].dropna().astype(float)
-    rata_rata = hitung_rata_rata(nilai)
-    median = hitung_median(nilai)
-    modus, frekuensi_modus = hitung_modus(nilai)
+    rata_rata = mean(nilai)
+    nilai_median = median(nilai)
+    nilai_modus, frekuensi_modus = modus(nilai)
 
     print(f'\nNilai rata-rata dari kolom {column_name}: {rata_rata}')
-    print(f'Nilai median dari kolom {column_name}: {median}')
-    print(f'Nilai modus dari kolom {column_name}: {modus}, Frekuensi: {frekuensi_modus}')
+    print(f'Nilai median dari kolom {column_name}: {nilai_median}')
+    print(f'Nilai modus dari kolom {column_name}: {nilai_modus}, Frekuensi: {frekuensi_modus}')
 
 
 file_path = "D:\projek-package\src\SAMPEL NILAI PROJEK ALGORITMA.xlsx" #Ganti dengan file path file yang ingin dihitung statistiknya
