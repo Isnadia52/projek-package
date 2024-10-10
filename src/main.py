@@ -1,16 +1,18 @@
 import pandas as pd
 
-
 class StatisticMethod:
     datas = {}
 
-    def _init_(self, file_path, sheet_name=0):
+    def __init__(self, file_path, sheet_name=0):
         """ 
         Marche
         """
         try:
             data = pd.read_excel(file_path, sheet_name=sheet_name)
 
+            kolom = data.columns
+            for column in kolom:
+                self.datas[column] = data[column].tolist()
             # disini assign data ke variabel datas. datas adalah dictionary,
             # jadi berisi key dan value. key nya adalah nama kolom, value nya
             # adalah data dari kolom tersebut.
