@@ -70,17 +70,29 @@ class StatisticMethod:
         Kiyah
         """
 
-    def skewness(self):
-        """
-        Nadia
-        """
-        rerata = self.mean()
+    def skewness(self, nama_kolom):
+        n = len(self[nama_kolom])
+        mean = self[nama_kolom].mean()
+        std_dev = self[nama_kolom].std()
+
+        # Menghitung skewness
+        skewness = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 3)
+        return skewness
 
     def simpangan_rata_rata(self):
         """
         Anugrah
         """
         pass
+
+    def kurtosis(self, nama_kolom):
+        n = len(self[nama_kolom])
+        mean = self[nama_kolom].mean()
+        std_dev = self[nama_kolom].std()
+
+        # Menghitung kurtosis
+        kurtosis = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 4) - 3
+        return kurtosis
 
 #var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
 #print(var1.mean("Matematika"))
