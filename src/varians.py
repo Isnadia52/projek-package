@@ -9,8 +9,8 @@ def hitung_varians_sampel(data):
 
 def hitung_varians_populasi(data):
     """ Menghitung varians populasi
-     Rumus: o² = (1/n) * Σ(x_i - μ)² """
-
+    Rumus: o² = (1/n) * Σ(x_i - μ)² """
+    
     n = len(data)
     mean = (data) / n
     varians = sum((x - mean) ** 2 for x in data) / n  #Ini adalah rumus varians dalam bahasa python #Menghitung varians populasi
@@ -26,5 +26,9 @@ def hitung_varians(data, jenis_varians):
 
 def hitung_simpangan_baku(data, jenis_varians):
     "Menghitung simpangan baku dari varians"
+
     varians = hitung_varians(data, jenis_varians)
-    return varians **0.5 #Akar Kuadrat 
+    return varians **0.5 #Akar Kuadrat
+
+
+
