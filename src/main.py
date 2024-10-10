@@ -14,8 +14,7 @@ class StatisticMethod:
             for column in kolom:
                 self.datas[column] = data[column].tolist()
             # disini assign data ke variabel datas. datas adalah dictionary,
-            # jadi berisi key dan value. key nya adalah nama kolom, value nya
-            # adalah data dari kolom tersebut.
+            # jadi berisi key dan value. key nya adalah nama kolom, valuenya adalah data dari kolom tersebut.
             # Masukkan kodenya di bawah ini
 
         except FileNotFoundError:
@@ -25,15 +24,16 @@ class StatisticMethod:
         except Exception as e:
             print(f'Terjadi kesalahan: {e}')
     
-
     def get_data(self, nama_kolom):
         return self.datas[nama_kolom]
 
-    def mean(self):
-        """ 
-        Marche
-        """
-        pass
+    def mean(self, column_name):
+        '''Fungsi untuk menghitung rata-rata dari sekumpulan angka/nilai.'''
+        nilai = self.get_data(column_name)
+        jumlah_nilai = sum(nilai)
+        banyaknya_nilai = len(nilai)
+        nilai_rata_rata = jumlah_nilai / banyaknya_nilai if banyaknya_nilai > 0 else 0
+        return nilai_rata_rata
 
     def median(self):
         """ 
@@ -81,3 +81,6 @@ class StatisticMethod:
         Anugrah
         """
         pass
+
+#var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
+#print(var1.mean("Matematika"))
