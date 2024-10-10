@@ -47,12 +47,35 @@ class StatisticMethod:
         """
         pass
 
-    def variansi(self):
-        """ 
-        Naca
-        """
-        pass
-
+    def hitung_varians_sampel(self, nama_kolom, data):
+       """Rumus: s² = (1/(n-1)) * Σ(x_i - x̄)²"""
+       data = self.get_data(nama_kolom)
+       n = len(data) 
+       mean = sum(data) / n 
+       varians = sum((x - mean) ** 2 for x in data) / (n - 1) 
+       return varians 
+    
+    def hitung_varians_populasi(self, nama_kolom, data):
+       """ Rumus: o² = (1/n) * Σ(x_i - μ)² """
+       data = self.get_data(nama_kolom)
+       n = len(data) 
+       mean = sum(data) / n 
+       varians = sum((x - mean) ** 2 for x in data) / n 
+       return varians 
+    
+    def hitung_varians(self, nama_kolom, jenis_varians):
+        if jenis_varians == 'sampel':
+            return self.jenis_varians(nama_kolom)
+        elif jenis_varians == 'populasi':
+            return self.jenis_varians(nama_kolom)
+        else:
+            raise ValueError("Jenis Varians tidak valid. Gunakan 'sampel' atau 'populasi'  ")
+        
+    def hitung_simpangan_baku(self, nama_kolom, jenis_varians):
+        """Menghitung simpangan baku dari varians"""
+        varians = self.hitung_varians(nama_kolom, jenis_varians)
+        return varians ** 0.5  # Akar kuadrat
+    
     def desil(self):
         """ 
         Daffa
@@ -64,11 +87,6 @@ class StatisticMethod:
         Daffa
         """
         pass
-
-    def simpangan_baku(self):
-        """
-        Kiyah
-        """
 
     def skewness(self):
         """
