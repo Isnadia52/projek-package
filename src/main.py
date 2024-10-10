@@ -24,6 +24,10 @@ class StatisticMethod:
             print(f'Error: {ve}')
         except Exception as e:
             print(f'Terjadi kesalahan: {e}')
+    
+
+    def get_data(self, nama_kolom):
+        return self.datas[nama_kolom]
 
     def mean(self):
         """ 
