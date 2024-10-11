@@ -12,7 +12,6 @@ class StatisticMethod:
                 self.datas[column] = data[column].tolist()
             # disini assign data ke variabel datas. datas adalah dictionary,
             # jadi berisi key dan value. key nya adalah nama kolom, valuenya adalah data dari kolom tersebut.
-            # Masukkan kodenya di bawah ini
 
         except FileNotFoundError:
             print(f'Error: File "{file_path}" tidak ditemukan.')
@@ -92,4 +91,5 @@ class StatisticMethod:
         """
         pass
 
-#var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
+var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
+print(var1.mean("Fisika"))
