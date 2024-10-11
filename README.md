@@ -62,6 +62,4 @@ Modul skewness mengukur derajat kemiringan distribusi data, sedangkan kurtosis m
 
 **Statistik Data** mempermudah pengguna dengan memberikan akses langsung ke analisis statistik hanya dengan menghubungkan Python ke file Excel yang ada di komputer. Package ini menyediakan berbagai alat yang intuitif dan efisien untuk mendukung analisis statistik yang mendalam, menjadikannya solusi yang tepat bagi siapa pun yang ingin memproses data numerik dengan cepat dan akurat.
 
----
 
-Versi ini lebih profesional dan formal, dengan penekanan pada manfaat dan kegunaan package.
