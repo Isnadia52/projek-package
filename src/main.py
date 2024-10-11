@@ -53,7 +53,7 @@ class StatisticMethod:
         """
         pass
 
-    def desil(self, nama_kolom):
+    def desil(self, nama_kolom,k):
         data = self.get_data(nama_kolom)
         N = len(data)
         '''Rumus untuk menghitung posisi desil ke-k:

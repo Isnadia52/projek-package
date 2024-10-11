@@ -23,7 +23,7 @@ def hitung_kuartil(data):
     data.sort()
     N = len(data)
 
-    # Menghitung Q1
+    # Menghitung kuartil
     if N % 2 == 0:
         Q1 = (data[N // 4 - 1] + data[N // 4]) / 2
         Q2 = (data[N // 2 - 1] + data[N // 2]) / 2
