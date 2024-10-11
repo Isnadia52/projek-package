@@ -30,7 +30,7 @@ Modul variansi memberikan informasi tentang seberapa jauh data tersebar dari nil
 ## **Desil**
 Desil adalah modul yang membagi data menjadi 10 bagian yang sama besar. Hal ini memungkinkan analisis yang lebih terperinci terkait distribusi data dalam setiap bagian.
 
-``` StatisticMethod.Desil ```
+``` StatisticMethod.desil ```
 
 
 ## **Kuartil**
