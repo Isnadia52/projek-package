@@ -26,7 +26,20 @@ class StatisticMethod:
     
 
     def get_data(self, nama_kolom):
-        return self.datas[nama_kolom]
+        data = self.datas[nama_kolom]
+        if nama_kolom not in self.datas:
+            print("Kolom yang anda masukkan tidak ditemukan")
+            return None
+    
+        data = self.datas[nama_kolom]
+        
+        for nilai in data:
+            if not isinstance(nilai, (int, float)):
+                print("Data tidak valid: ada nilai yang bukan angka")
+                return None
+        
+        return data
+
 
     
     def mean(self, column_name):
@@ -83,3 +96,6 @@ class StatisticMethod:
         Anugrah
         """
         pass
+# var1 = StatisticMethod("SAMPEL NILAI ALGORITMA PROJEK.xlsx")
+# print(var1.desil("matematika"))
+    
