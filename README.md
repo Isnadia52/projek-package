@@ -1,33 +1,65 @@
-# Statistik Data
-Package statistik data adalah sebuah package yang dirancang untuk memudahkan pengolahan data numerik dalam bahasa Python. Terdapat berbagai modul yang tersedia, seperti mean, median, modus, desil, kuartil, varians, simpangan rata-rata, kurtosis, dan skewness. Setiap modul memiliki fungsinya masing-masing, yang sangat membantu dalam analisis dan pengolahan data. Dengan menggunakan package ini, pengguna dapat lebih efisien dalam mengolah dan menganalisis data yang dimiliki.
+# **Statistic Method**
 
-```bash import StatisticMethode ``` 
+**Statistic Method** adalah sebuah package yang dirancang untuk menyederhanakan pengolahan data numerik dalam bahasa Python. Package ini menawarkan berbagai modul statistik yang mendukung analisis mendalam terhadap dataset, seperti perhitungan mean, median, modus, desil, kuartil, variansi, simpangan rata-rata, kurtosis, dan skewness. Setiap modul memiliki peran penting dalam membantu pengguna menganalisis data secara efisien dan akurat. Dengan **Statistik Data**, pengguna dapat dengan mudah mengolah data numerik tanpa perlu mengimplementasikan algoritma statistik dari awal, sehingga mempermudah proses analisis secara keseluruhan.
 
-## Mean
-	Modul ini berfungsi menghitung nilai rata-rata dari sebuah kolom untuk memberikan gambaran umum tentang pusat data dan memudahkan perbandingan serta analisis statistik.
+```bash import StatisticMethod ```
 
-## Median
-	Median adalah modul yang berguna untuk menghitung nilai tengah dari sebuah kolom yang berguna untuk memahami titik tengah data, memberikan gambaran yang lebih akurat tentang distribusi, dan mengurangi pengaruh nilai ekstrem.
+## **Mean**
+Modul ini berfungsi untuk menghitung nilai rata-rata dari suatu kolom, memberikan gambaran umum tentang titik tengah data, serta mempermudah perbandingan dalam analisis statistik.
 
-## Modus
-	Modus untuk menghitung Menghitung nilai yang paling sering muncul dalam sebuah kolom. Mengetahui nilai modus berguna untuk mengidentifikasi nilai yang paling sering muncul dalam suatu dataset, sehingga membantu memahami pola atau kecenderungan dalam data tersebut.
+```bash StatisticMethod.mean ```
 
-## Varians
-	Modul varians berguna untuk menunjukkan sejauh mana data menyebar dari rata-rata, juga membantu membandingkan variasi antar grup data
+## **Median**
+Modul median menghitung nilai tengah dari suatu kolom, yang bermanfaat untuk memberikan representasi yang lebih akurat dari distribusi data, terutama ketika data mengandung nilai-nilai ekstrem.
 
-## Desil
-	fungsi modul desil adalah untuk membagi data menjadi 10 bagian yang sama besar untuk menganalisis distribusi data secara lebih rinci.
+```bash StatisticMethod.median ```
 
-## Kuartil
-	Modul kuartil berguna untuk membagi data menjadi tiga bagian yang sama besar digunakan untuk memahami sebaran data, serta menghitung rentang interkuartil (Q3 - Q1) untuk mengetahui penyebaran data
 
-## Simpangan Baku
-	Modul ini berguna menunjukkan ukuran statistik yang menggambarkan seberapa besar variasi atau penyebaran data dalam suatu kumpulan. Semakin kecil nilai simpangan baku, semakin dekat data dengan rata-ratanya, sedangkan semkain besar nilai simpangan baku, semakin tersebar data tersebut.
+## **Modus**
+Modul modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai modus membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
 
-## Simpangan Rata-Rata
-	Modul simpangan rata-rata dirancang untuk menghitung simpangan rata-rata dari suatu kumpulan data numerik, atau memberikan informasi tentang sebaran data dan konsistensi nilai-nilai dalam dataset yang dapat menjadi indikator penting dalam pengambilan keputusan berbasis data.
+```bash StatisticMethod.modus ```
 
-## Skewness dan Kurtosis
 
-StatisticMethod adalah sebuah package Python yang dirancang untuk memudahkan pengguna dalam melakukan analisis statistik secara langsung dari file Excel yang disimpan di komputer. Dengan hanya menghubungkan Python ke file di desktop dan memilih modul statistik yang diperlukan, pengguna dapat melakukan berbagai operasi statistik tanpa kesulitan. Package ini menyediakan solusi yang efisien dan intuitif bagi pengguna dalam berbagai analisis data, menjadikannya alat yang ideal untuk kebutuhan pemrosesan data sehari-hari.
+## **Varians**
+Modul variansi memberikan informasi tentang seberapa jauh data tersebar dari nilai rata-rata. Modul ini juga berguna untuk membandingkan variasi di antara beberapa grup data.
 
+```bash StatisticMethod.varians ```
+
+
+## **Desil**
+Desil adalah modul yang membagi data menjadi 10 bagian yang sama besar. Hal ini memungkinkan analisis yang lebih terperinci terkait distribusi data dalam setiap bagian.
+
+```bash StatisticMethod.Desil ```
+
+
+## **Kuartil**
+Modul kuartil berguna untuk membagi data menjadi empat bagian yang sama besar. Selain itu, modul ini digunakan untuk menghitung rentang interkuartil (Q3 - Q1) yang memberikan informasi penting tentang penyebaran data.
+
+```bash StatisticMethod.Kuartil ```
+
+
+## **Simpangan Baku**
+Modul simpangan baku menghitung ukuran variasi atau penyebaran data. Semakin kecil simpangan baku, semakin dekat nilai-nilai data terhadap rata-rata, dan sebaliknya.
+
+```bash StatisticMethod.simpangan_baku ```
+
+
+## **Simpangan Rata-Rata**
+Modul ini dirancang untuk menghitung simpangan rata-rata dari dataset, yang memberikan indikasi tentang tingkat sebaran data dan konsistensi nilai-nilai dalam dataset tersebut. Informasi ini dapat digunakan untuk mendukung pengambilan keputusan yang berbasis data.
+
+```bash StatisticMethod.rata_rata ```
+
+
+## **Skewness dan Kurtosis**
+Modul skewness mengukur derajat kemiringan distribusi data, sedangkan kurtosis memberikan informasi tentang bentuk distribusi, terutama apakah data menunjukkan distribusi yang lebih rata atau lebih memusat.
+
+
+
+---
+
+**Statistik Data** mempermudah pengguna dengan memberikan akses langsung ke analisis statistik hanya dengan menghubungkan Python ke file Excel yang ada di komputer. Package ini menyediakan berbagai alat yang intuitif dan efisien untuk mendukung analisis statistik yang mendalam, menjadikannya solusi yang tepat bagi siapa pun yang ingin memproses data numerik dengan cepat dan akurat.
+
+---
+
+Versi ini lebih profesional dan formal, dengan penekanan pada manfaat dan kegunaan package.
