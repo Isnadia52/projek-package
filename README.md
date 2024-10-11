@@ -36,7 +36,7 @@ Desil adalah modul yang membagi data menjadi 10 bagian yang sama besar. Hal ini 
 ## **Kuartil**
 Modul kuartil berguna untuk membagi data menjadi empat bagian yang sama besar. Selain itu, modul ini digunakan untuk menghitung rentang interkuartil (Q3 - Q1) yang memberikan informasi penting tentang penyebaran data.
 
-``` StatisticMethod.Kuartil ```
+``` StatisticMethod.kuartil ```
 
 
 ## **Simpangan Baku**
