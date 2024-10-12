@@ -1,6 +1,6 @@
 # **Statistic Method**
 
-**Statistic Method** adalah sebuah package yang dirancang untuk menyederhanakan pengolahan data numerik dalam bahasa Python. Package ini menawarkan berbagai method statistik yang mendukung analisis mendalam terhadap dataset, seperti perhitungan mean, median, modus, desil, kuartil, variansi, simpangan rata-rata, kurtosis, dan skewness. Setiap method memiliki peran penting dalam membantu pengguna menganalisis data secara efisien dan akurat. Dengan **Statistik Method**, pengguna dapat dengan mudah mengolah data numerik tanpa perlu mengimplementasikan algoritma statistik dari awal, sehingga mempermudah proses analisis secara keseluruhan.
+**Statistic Method** adalah sebuah package yang dirancang untuk menyederhanakan pengolahan data numerik dalam bahasa Python. Package ini menawarkan berbagai method statistik yang mendukung analisis mendalam terhadap dataset, seperti perhitungan mean, median, modus, desil, kuartil, variansi, simpangan rata-rata, simpangan baku, kurtosis, dan skewness. Setiap method memiliki peran penting dalam membantu pengguna menganalisis data secara efisien dan akurat. Dengan **Statistik Method**, pengguna dapat dengan mudah mengolah data numerik tanpa perlu mengimplementasikan algoritma statistik dari awal, sehingga mempermudah proses analisis secara keseluruhan.
 
 ``` import StatisticMethod ```
 
@@ -24,7 +24,7 @@ Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data ak
 
 
 ## **Modus**
-Method modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai modis membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
+Method modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai modus membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
 
 ``` StatisticMethod.modus(self, nama_kolom) ```
 
