@@ -47,11 +47,11 @@ class StatisticMethod:
         """
         pass
 
-    def hitung_varians_sampel(self, nama_kolom, data):
+    def hitung_varians_sampel(self, nama_kolom):
        """Rumus: s² = (1/(n-1)) * Σ(x_i - x̄)²"""
        data = self.get_data(nama_kolom)
        n = len(data) 
-       mean = sum(data) / n 
+       mean = self.mean(nama_kolom)
        varians = sum((x - mean) ** 2 for x in data) / (n - 1) 
        return varians 
     
@@ -59,21 +59,21 @@ class StatisticMethod:
        """ Rumus: o² = (1/n) * Σ(x_i - μ)² """
        data = self.get_data(nama_kolom)
        n = len(data) 
-       mean = sum(data) / n 
+       mean = self.mean(nama_kolom)
        varians = sum((x - mean) ** 2 for x in data) / n 
        return varians 
     
-    def hitung_varians(self, nama_kolom, jenis_varians, data):
+    def hitung_varians(self, nama_kolom, jenis_varians):
         if jenis_varians == 'sampel':
-            return self.hitung_varians_sampel(nama_kolom, data)
+            return self.hitung_varians_sampel(nama_kolom)
         elif jenis_varians == 'populasi':
-            return self.hitung_varians_populasi(nama_kolom, data)
+            return self.hitung_varians_populasi(nama_kolom)
         else:
             raise ValueError("Jenis Varians tidak valid. Gunakan 'sampel' atau 'populasi'  ")
         
-    def hitung_simpangan_baku(self, nama_kolom, jenis_varians, data):
+    def hitung_standar_deviation(self, nama_kolom):
         """Menghitung simpangan baku dari varians"""
-        varians = self.hitung_varians(nama_kolom, jenis_varians, data)
+        varians = self.hitung_varians_sampel(nama_kolom)
         return varians ** 0.5  # Akar kuadrat
 
     def desil(self):
@@ -100,5 +100,5 @@ class StatisticMethod:
         """
         pass
 
-# var1 = StatisticMethod("src\\SAMPEL NILAI PROJEK ALGORITMA.xlsx")
-# print(var1.hitung_varians_populasi("Matematika"))
+var1 = StatisticMethod("src\\SAMPEL NILAI PROJEK ALGORITMA.xlsx")
+print(var1.hitung_varians_sampel("Matematika"))
