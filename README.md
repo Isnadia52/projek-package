@@ -24,7 +24,7 @@ Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data ak
 
 
 ## **Modus**
-Method modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai method membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
+Method modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai modis membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
 
 ``` StatisticMethod.modus(self, nama_kolom) ```
 
