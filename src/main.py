@@ -21,8 +21,85 @@ class StatisticMethod:
             print(f'Terjadi kesalahan: {e}')
     
     def get_data(self, nama_kolom):
-        return self.datas[nama_kolom]
+        data = self.datas[nama_kolom]
+        if nama_kolom not in self.datas:
+            print("Kolom yang anda masukkan tidak ditemukan")
+            raise Exception("Kolom tidak valid!")
+        
+        for nilai in data:
+            if not isinstance(nilai, (int, float)):
+                print("Data tidak valid: ada nilai yang bukan angka")
+                raise Exception("Data tidak valid!")
+        
+        return data
 
+
+    
+    def mean(self, column_name):
+        '''Fungsi untuk menghitung rata-rata dari sekumpulan angka/nilai.'''
+        nilai = self.get_data(column_name)
+        jumlah_nilai = sum(nilai)
+        banyaknya_nilai = len(nilai)
+        nilai_rata_rata = jumlah_nilai / banyaknya_nilai if banyaknya_nilai > 0 else 0
+        return nilai_rata_rata
+
+    def median(self):
+        """ 
+        Marche
+        """
+        pass
+
+    def modus(self):
+        """ 
+        Marche
+        """
+        pass
+
+    def variansi(self):
+        """ 
+        Naca
+        """
+        pass
+
+    def desil(self):
+        """ 
+        Daffa
+        """
+        pass
+
+    def kuartil(self):
+        """ 
+        Daffa
+        """
+        pass
+
+    def simpangan_baku(self):
+        """
+        Kiyah
+        """
+
+    def skewness(self):
+        """
+        Nadia
+        """
+        rerata = self.mean()
+
+    def mean_deviation(self, nama_kolom):
+        try:
+            rata_rata = self.mean(nama_kolom)
+            nilai = self.get_data(nama_kolom)
+            n = len(nilai)
+            total_deviasi = 0
+            for x in nilai:
+                deviasi = abs(x - rata_rata)
+                total_deviasi += deviasi 
+
+            simpangan_rata = round(total_deviasi / n, 2)
+            
+            return simpangan_rata
+        except:
+            print("kolom atau data tidak valid")
+        
     def mean(self, nama_kolom):
         '''Fungsi untuk menghitung rata-rata dari sekumpulan data.'''
         try:
