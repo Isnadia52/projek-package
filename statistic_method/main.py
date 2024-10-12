@@ -160,8 +160,20 @@ class StatisticMethod:
             std_dev = self.standard_deviation(nama_kolom)
 
             # Menghitung skewness
-            skewness = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 3)
+            skewness = sum((x - mean) ** 3 for x in self.get_data(nama_kolom)) / ((n - 1) * (std_dev ** 3))
             return skewness
+        except:
+            print("Kolom atau data tidak valid!")
+
+    def kurtosis(self, nama_kolom):
+        try:
+            n = len(self.get_data(nama_kolom))
+            mean = self.mean(nama_kolom)
+            std_dev = self.standard_deviation(nama_kolom)
+
+            # Menghitung kurtosis
+            kurtosis = sum(((x - mean) / std_dev) ** 4 for x in self.get_data(nama_kolom)) / n - 3
+            return kurtosis
         except:
             print("Kolom atau data tidak valid!")
 
