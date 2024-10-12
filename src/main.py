@@ -76,9 +76,9 @@ class StatisticMethod:
         """
         rerata = self.mean()
 
-    def simpangan_rata_rata(self, column_name):
-        rata_rata = self.mean(column_name)
-        nilai = self.get_data(column_name)
+    def simpangan_rata_rata(self, nama_kolom):
+        rata_rata = self.mean(nama_kolom)
+        nilai = self.get_data(nama_kolom)
         n = len(nilai)
         total_deviasi = 0
         for x in nilai:
