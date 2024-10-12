@@ -47,11 +47,36 @@ class StatisticMethod:
         """
         pass
 
-    def variansi(self):
-        """ 
-        Naca
-        """
-        pass
+    def varians_sample(self, nama_kolom):
+       """Rumus: s² = (1/(n-1)) * Σ(x_i - x̄)²"""
+       data = self.get_data(nama_kolom) 
+       mean = self.mean(nama_kolom)
+       varians = sum((x - mean) ** 2 for x in data) / (len(data) - 1) 
+       return varians 
+    
+    def varians_population(self, nama_kolom):
+       """ Rumus: o² = (1/n) * Σ(x_i - μ)² """
+       data = self.get_data(nama_kolom)
+       mean = self.mean(nama_kolom)
+       varians = sum((x - mean) ** 2 for x in data) / len(data)
+       return varians 
+    
+    def varians(self, nama_kolom, jenis_varians):
+        try: 
+             if jenis_varians == 'sampel':
+                return self.varians_sample(nama_kolom)
+             elif jenis_varians == 'populasi':
+                return self.varians_population(nama_kolom)
+             else:
+               raise ValueError("Jenis Varians tidak valid. Gunakan 'sampel' atau 'populasi'  ")
+        except:
+            print('Kolom atau data tidak valid! ')
+             
+        
+    def standard_deviation(self, nama_kolom):
+        """Menghitung simpangan baku dari varians"""
+        varians = self.varians_sample(nama_kolom)
+        return varians ** 0.5  # Akar kuadrat
 
     def desil(self):
         """ 
@@ -65,19 +90,17 @@ class StatisticMethod:
         """
         pass
 
-    def simpangan_baku(self):
-        """
-        Kiyah
-        """
-
     def skewness(self, nama_kolom):
-        n = len(self[nama_kolom])
-        mean = self[nama_kolom].mean()
-        std_dev = self[nama_kolom].std()
+        try:
+            n = len(self.get_data(nama_kolom))
+            mean = self.mean(nama_kolom)
+            std_dev = self.standard_deviation(nama_kolom)
 
-        # Menghitung skewness
-        skewness = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 3)
-        return skewness
+            # Menghitung skewness
+            skewness = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 3)
+            return skewness
+        except:
+            print("Kolom atau data tidak valid!")
 
     def simpangan_rata_rata(self):
         """
@@ -86,13 +109,16 @@ class StatisticMethod:
         pass
 
     def kurtosis(self, nama_kolom):
-        n = len(self[nama_kolom])
-        mean = self[nama_kolom].mean()
-        std_dev = self[nama_kolom].std()
+        try:
+            n = len(self.get_data(nama_kolom))
+            mean = self.mean(nama_kolom)
+            std_dev = self.standard_deviation(nama_kolom)
 
-        # Menghitung kurtosis
-        kurtosis = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 4) - 3
-        return kurtosis
+            # Menghitung kurtosis
+            kurtosis = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 4) - 3
+            return kurtosis
+        except:
+            print("Kolom atau data tidak valid!")
 
 #var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
 #print(var1.mean("Matematika"))
