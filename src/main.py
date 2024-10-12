@@ -121,14 +121,17 @@ class StatisticMethod:
             print("Kolom atau data tidak valid!")
 
     def mean_deviation(self, nama_kolom):
-        rata_rata = self.mean(nama_kolom)
-        nilai = self.get_data(nama_kolom)
-        n = len(nilai)
-        total_deviasi = 0
-        for x in nilai:
-            deviasi = abs(x - rata_rata)
-            total_deviasi += deviasi 
+        try:
+            rata_rata = self.mean(nama_kolom)
+            nilai = self.get_data(nama_kolom)
+            n = len(nilai)
+            total_deviasi = 0
+            for x in nilai:
+                deviasi = abs(x - rata_rata)
+                total_deviasi += deviasi 
 
-        simpangan_rata = total_deviasi / n
-        
-        return simpangan_rata
+            simpangan_rata = round(total_deviasi / n, 2)
+            
+            return simpangan_rata
+        except:
+            print("kolom atau data tidak valid")
