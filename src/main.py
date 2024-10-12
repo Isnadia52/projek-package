@@ -65,11 +65,36 @@ class StatisticMethod:
         except:
             print("Kolom atau data tidak valid")
             
-    def variansi(self):
-        """ 
-        Naca
-        """
-        pass
+    def varians_sample(self, nama_kolom):
+       """Rumus: s² = (1/(n-1)) * Σ(x_i - x̄)²"""
+       data = self.get_data(nama_kolom) 
+       mean = self.mean(nama_kolom)
+       varians = sum((x - mean) ** 2 for x in data) / (len(data) - 1) 
+       return varians 
+    
+    def varians_population(self, nama_kolom):
+       """ Rumus: o² = (1/n) * Σ(x_i - μ)² """
+       data = self.get_data(nama_kolom)
+       mean = self.mean(nama_kolom)
+       varians = sum((x - mean) ** 2 for x in data) / len(data)
+       return varians 
+    
+    def varians(self, nama_kolom, jenis_varians):
+        try: 
+             if jenis_varians == 'sampel':
+                return self.varians_sample(nama_kolom)
+             elif jenis_varians == 'populasi':
+                return self.varians_population(nama_kolom)
+             else:
+               raise ValueError("Jenis Varians tidak valid. Gunakan 'sampel' atau 'populasi'  ")
+        except:
+            print('Kolom atau data tidak valid! ')
+             
+        
+    def standard_deviation(self, nama_kolom):
+        """Menghitung simpangan baku dari varians"""
+        varians = self.varians_sample(nama_kolom)
+        return varians ** 0.5  # Akar kuadrat
 
     def desil(self):
         """ 
