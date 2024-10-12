@@ -24,27 +24,27 @@ class StatisticMethod:
         return self.datas[nama_kolom]
 
     def mean(self, nama_kolom):
-        '''Fungsi untuk menghitung rata-rata dari sekumpulan angka/nilai.'''
-        nilai = self.get_data(nama_kolom)
-        jumlah_nilai = sum(nilai)
-        banyaknya_nilai = len(nilai)
-        nilai_rata_rata = jumlah_nilai / banyaknya_nilai if banyaknya_nilai > 0 else 0
+        '''Fungsi untuk menghitung rata-rata dari sekumpulan data.'''
+        data = self.get_data(nama_kolom)
+        jumlah_data = sum(data)
+        banyaknya_data = len(data)
+        nilai_rata_rata = jumlah_data / banyaknya_data if banyaknya_data > 0 else 0
         return nilai_rata_rata
 
     def median(self, nama_kolom):
-        '''Fungsi untuk menentukan median dari sekumpulan nilai.'''
-        nilai = self.get_data(nama_kolom)
-        sorted_nilai = sorted(nilai)
-        banyaknya_nilai = len(sorted_nilai)
-        if banyaknya_nilai % 2 == 1:    # jika banyaknya nilai berjumlah ganjil
-            nilai_median = sorted_nilai[banyaknya_nilai // 2]
+        '''Fungsi untuk menentukan nilai tengah dari sekumpulan data.'''
+        data = self.get_data(nama_kolom)
+        sorted_data = sorted(data)
+        banyaknya_data = len(sorted_data)
+        if banyaknya_data % 2 == 1:    # jika banyaknya data berjumlah ganjil
+            nilai_median = sorted_data[banyaknya_data // 2]
             return nilai_median
-        else:                           # jika banyaknya nilai berjumlah genap
-            nilai_median = (sorted_nilai[banyaknya_nilai // 2 - 1] + sorted_nilai[banyaknya_nilai // 2]) / 2
+        else:                           # jika banyaknya data berjumlah genap
+            nilai_median = (sorted_data[banyaknya_data // 2 - 1] + sorted_data[banyaknya_data // 2]) / 2
             return nilai_median
 
     def modus(self, nama_kolom):
-        '''Fungsi untuk menentukan nilai modus dari sekumpulan nilai.'''
+        '''Fungsi untuk menentukan nilai yang paling sering muncul dari sekumpulan data.'''
         nilai = self.get_data(nama_kolom)
         frekuensi = {}
         for value in nilai:
@@ -90,6 +90,3 @@ class StatisticMethod:
         Anugrah
         """
         pass
-
-var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
-print(var1.mean("Fisika"))
