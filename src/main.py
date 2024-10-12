@@ -83,11 +83,6 @@ class StatisticMethod:
         """
         pass
 
-    def simpangan_baku(self):
-        """
-        Kiyah
-        """
-
     def skewness(self):
         """
         Nadia
@@ -99,3 +94,6 @@ class StatisticMethod:
         Anugrah
         """
         pass
+
+var1 = StatisticMethod("src\\SAMPEL NILAI PROJEK ALGORITMA.xlsx")
+print(var1.hitung_varians("Matematika", "sampel"))
