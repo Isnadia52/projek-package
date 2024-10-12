@@ -29,14 +29,12 @@ class StatisticMethod:
         data = self.datas[nama_kolom]
         if nama_kolom not in self.datas:
             print("Kolom yang anda masukkan tidak ditemukan")
-            return None
-    
-        data = self.datas[nama_kolom]
+            raise Exception("Kolom tidak valid!")
         
         for nilai in data:
             if not isinstance(nilai, (int, float)):
                 print("Data tidak valid: ada nilai yang bukan angka")
-                return None
+                raise Exception("Data tidak valid!")
         
         return data
 
