@@ -114,11 +114,15 @@ class StatisticMethod:
         """
         rerata = self.mean()
 
-    def simpangan_rata_rata(self):
-        """
-        Anugrah
-        """
-        pass
+    def mean_deviation(self, nama_kolom):
+        rata_rata = self.mean(nama_kolom)
+        nilai = self.get_data(nama_kolom)
+        n = len(nilai)
+        total_deviasi = 0
+        for x in nilai:
+            deviasi = abs(x - rata_rata)
+            total_deviasi += deviasi 
 
-var1 = StatisticMethod("src\\SAMPEL NILAI PROJEK ALGORITMA.xlsx")
-print(var1.hitung_varians("Matematika", "sampel"))
+        simpangan_rata = total_deviasi / n
+        
+        return simpangan_rata
