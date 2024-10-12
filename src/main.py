@@ -25,37 +25,46 @@ class StatisticMethod:
 
     def mean(self, nama_kolom):
         '''Fungsi untuk menghitung rata-rata dari sekumpulan data.'''
-        data = self.get_data(nama_kolom)
-        jumlah_data = sum(data)
-        banyaknya_data = len(data)
-        nilai_rata_rata = jumlah_data / banyaknya_data if banyaknya_data > 0 else 0
-        return nilai_rata_rata
+        try:
+            data = self.get_data(nama_kolom)
+            jumlah_data = sum(data)
+            banyaknya_data = len(data)
+            nilai_rata_rata = jumlah_data / banyaknya_data if banyaknya_data > 0 else 0
+            return nilai_rata_rata
+        except:
+            print("Kolom atau data tidak valid")
 
     def median(self, nama_kolom):
         '''Fungsi untuk menentukan nilai tengah dari sekumpulan data.'''
-        data = self.get_data(nama_kolom)
-        sorted_data = sorted(data)
-        banyaknya_data = len(sorted_data)
-        if banyaknya_data % 2 == 1:    # jika banyaknya data berjumlah ganjil
-            nilai_median = sorted_data[banyaknya_data // 2]
-            return nilai_median
-        else:                           # jika banyaknya data berjumlah genap
-            nilai_median = (sorted_data[banyaknya_data // 2 - 1] + sorted_data[banyaknya_data // 2]) / 2
-            return nilai_median
+        try:
+            data = self.get_data(nama_kolom)
+            sorted_data = sorted(data)
+            banyaknya_data = len(sorted_data)
+            if banyaknya_data % 2 == 1:    # jika banyaknya data berjumlah ganjil
+                nilai_median = sorted_data[banyaknya_data // 2]
+                return nilai_median
+            else:                           # jika banyaknya data berjumlah genap
+                nilai_median = (sorted_data[banyaknya_data // 2 - 1] + sorted_data[banyaknya_data // 2]) / 2
+                return nilai_median
+        except:
+            print("Kolom atau data tidak valid")
 
     def modus(self, nama_kolom):
         '''Fungsi untuk menentukan nilai yang paling sering muncul dari sekumpulan data.'''
-        nilai = self.get_data(nama_kolom)
-        frekuensi = {}
-        for value in nilai:
-            if value in frekuensi:
-                frekuensi[value] += 1
-            else:
-                frekuensi[value] = 1
-        modus = max(frekuensi, key=frekuensi.get)
-        frekuensi_modus = frekuensi[modus]
-        return modus, frekuensi_modus
-
+        try:
+            nilai = self.get_data(nama_kolom)
+            frekuensi = {}
+            for value in nilai:
+                if value in frekuensi:
+                    frekuensi[value] += 1
+                else:
+                    frekuensi[value] = 1
+            modus = max(frekuensi, key=frekuensi.get)
+            frekuensi_modus = frekuensi[modus]
+            return modus, frekuensi_modus
+        except:
+            print("Kolom atau data tidak valid")
+            
     def variansi(self):
         """ 
         Naca
