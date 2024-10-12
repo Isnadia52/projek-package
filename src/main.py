@@ -4,9 +4,6 @@ class StatisticMethod:
     datas = {}
 
     def __init__(self, file_path, sheet_name=0):
-        """ 
-        Marche
-        """
         try:
             data = pd.read_excel(file_path, sheet_name=sheet_name)
 
@@ -15,7 +12,6 @@ class StatisticMethod:
                 self.datas[column] = data[column].tolist()
             # disini assign data ke variabel datas. datas adalah dictionary,
             # jadi berisi key dan value. key nya adalah nama kolom, valuenya adalah data dari kolom tersebut.
-            # Masukkan kodenya di bawah ini
 
         except FileNotFoundError:
             print(f'Error: File "{file_path}" tidak ditemukan.')
@@ -24,7 +20,6 @@ class StatisticMethod:
         except Exception as e:
             print(f'Terjadi kesalahan: {e}')
     
-
     def get_data(self, nama_kolom):
         data = self.datas[nama_kolom]
         if nama_kolom not in self.datas:
@@ -89,11 +84,18 @@ class StatisticMethod:
         """
         rerata = self.mean()
 
-    def simpangan_rata_rata(self):
-        """
-        Anugrah
-        """
-        pass
-# var1 = StatisticMethod("SAMPEL NILAI ALGORITMA PROJEK.xlsx")
-# print(var1.desil("matematika"))
-    
+    def mean_deviation(self, nama_kolom):
+        try:
+            rata_rata = self.mean(nama_kolom)
+            nilai = self.get_data(nama_kolom)
+            n = len(nilai)
+            total_deviasi = 0
+            for x in nilai:
+                deviasi = abs(x - rata_rata)
+                total_deviasi += deviasi 
+
+            simpangan_rata = round(total_deviasi / n, 2)
+            
+            return simpangan_rata
+        except:
+            print("kolom atau data tidak valid")
