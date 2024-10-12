@@ -1,6 +1,6 @@
 # **Statistic Method**
 
-**Statistic Method** adalah sebuah package yang dirancang untuk menyederhanakan pengolahan data numerik dalam bahasa Python. Package ini menawarkan berbagai method statistik yang mendukung analisis mendalam terhadap dataset, seperti perhitungan mean, median, modus, desil, kuartil, variansi, simpangan rata-rata, kurtosis, dan skewness. Setiap method memiliki peran penting dalam membantu pengguna menganalisis data secara efisien dan akurat. Dengan **Statistik Data**, pengguna dapat dengan mudah mengolah data numerik tanpa perlu mengimplementasikan algoritma statistik dari awal, sehingga mempermudah proses analisis secara keseluruhan.
+**Statistic Method** adalah sebuah package yang dirancang untuk menyederhanakan pengolahan data numerik dalam bahasa Python. Package ini menawarkan berbagai method statistik yang mendukung analisis mendalam terhadap dataset, seperti perhitungan mean, median, modus, desil, kuartil, variansi, simpangan rata-rata, kurtosis, dan skewness. Setiap method memiliki peran penting dalam membantu pengguna menganalisis data secara efisien dan akurat. Dengan **Statistik Method**, pengguna dapat dengan mudah mengolah data numerik tanpa perlu mengimplementasikan algoritma statistik dari awal, sehingga mempermudah proses analisis secara keseluruhan.
 
 ``` import StatisticMethod ```
 
@@ -18,11 +18,19 @@ Method median menghitung nilai tengah dari suatu kolom, yang bermanfaat untuk me
 
 ``` StatisticMethod.median(self, nama_kolom) ```
 
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data akan diambil untuk menghitung median. 
+
 
 ## **Modus**
-Method modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai method membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
+Method modus digunakan untuk menghitung nilai yang paling sering muncul dalam suatu kolom data. Mengetahui nilai modis membantu dalam mengidentifikasi pola atau kecenderungan dalam dataset.
 
 ``` StatisticMethod.modus(self, nama_kolom) ```
+
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data akan diambil untuk menghitung modus.
 
 
 ## **Varians**
@@ -30,11 +38,28 @@ Method variansi memberikan informasi tentang seberapa jauh data tersebar dari ni
 
 ``` StatisticMethod.varians(self, nama_kolom, jenis_varians): ```
 
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Berisi nama kolom yang ingin dihitung variansnya
+
+Parameter: jenis_varians
+Tipe: str
+Deskripsi: Menentukan jenis varians yang akan dihitung, apakah varians sampel atau populasi 
+ini biasanya diisi dengan string 'sample' atau 'population'
+
 
 ## **Desil**
 Desil adalah method yang membagi data menjadi 10 bagian yang sama besar. Hal ini memungkinkan analisis yang lebih terperinci terkait distribusi data dalam setiap bagian.
 
 ``` StatisticMethod.decile(self, nama_kolom,k) ```
+
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Parameter ini diharapkan berisi nama kolom dari data yang ingin dianalisis.
+
+Parameter: k
+Tipe: integer
+Deskripsi: Parameter ini menunjukkan desil yang inging dihitung (misalnya 1 untuk desil pertama, 2 untuk desil kedua, dst sampai desil kesembilan).
 
 
 ## **Kuartil**
@@ -42,11 +67,21 @@ Method kuartil berguna untuk membagi data menjadi empat bagian yang sama besar. 
 
 ``` StatisticMethod.quartile(self, nama_kolom) ```
 
+Kuartil
+
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data akan diambil untuk menentukan kuartilnya.
+
 
 ## **Simpangan Baku**
 Method simpangan baku menghitung ukuran variasi atau penyebaran data. Semakin kecil simpangan baku, semakin dekat nilai-nilai data terhadap rata-rata, dan sebaliknya.
 
 ``` StatisticMethod.standard_deviation(self, nama_kolom) ```
+
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Berisi nama kolom dari data yang ingin dihitung simpangan bakunya
 
 
 ## **Simpangan Rata-Rata**
@@ -54,11 +89,25 @@ Method ini dirancang untuk menghitung simpangan rata-rata dari dataset, yang mem
 
 ``` StatisticMethod.mean_deviation(self, nama_kolom) ```
 
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Berisi nama kolom dari data yang ingin dihitung simpangan rata-ratanya.
+
 
 ## **Skewness dan Kurtosis**
 Method skewness mengukur derajat kemiringan distribusi data, sedangkan kurtosis memberikan informasi tentang bentuk distribusi, terutama apakah data menunjukkan distribusi yang lebih rata atau lebih memusat.
 
-``` StatisticMethod.skewness_kurtosis() ```
+``` StatisticMethod.skewness(self, nama_kolom) ```
+
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data akan diambil untuk menentukan skewness.
+
+``` StatisticMethod.kurtosis(self, nama_kolom) ```
+
+Parameter: nama_kolom
+Tipe: str
+Deskripsi: Parameter ini digunakan untuk menentukan nama kolom dari mana data akan diambil untuk menentukan kurtosis.
 
 
 
