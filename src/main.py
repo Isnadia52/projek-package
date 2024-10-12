@@ -4,9 +4,6 @@ class StatisticMethod:
     datas = {}
 
     def __init__(self, file_path, sheet_name=0):
-        """ 
-        Marche
-        """
         try:
             data = pd.read_excel(file_path, sheet_name=sheet_name)
 
@@ -15,7 +12,6 @@ class StatisticMethod:
                 self.datas[column] = data[column].tolist()
             # disini assign data ke variabel datas. datas adalah dictionary,
             # jadi berisi key dan value. key nya adalah nama kolom, valuenya adalah data dari kolom tersebut.
-            # Masukkan kodenya di bawah ini
 
         except FileNotFoundError:
             print(f'Error: File "{file_path}" tidak ditemukan.')
@@ -27,26 +23,48 @@ class StatisticMethod:
     def get_data(self, nama_kolom):
         return self.datas[nama_kolom]
 
-    def mean(self, column_name):
-        '''Fungsi untuk menghitung rata-rata dari sekumpulan angka/nilai.'''
-        nilai = self.get_data(column_name)
-        jumlah_nilai = sum(nilai)
-        banyaknya_nilai = len(nilai)
-        nilai_rata_rata = jumlah_nilai / banyaknya_nilai if banyaknya_nilai > 0 else 0
-        return nilai_rata_rata
+    def mean(self, nama_kolom):
+        '''Fungsi untuk menghitung rata-rata dari sekumpulan data.'''
+        try:
+            data = self.get_data(nama_kolom)
+            jumlah_data = sum(data)
+            banyaknya_data = len(data)
+            nilai_rata_rata = jumlah_data / banyaknya_data if banyaknya_data > 0 else 0
+            return nilai_rata_rata
+        except:
+            print("Kolom atau data tidak valid")
 
-    def median(self):
-        """ 
-        Marche
-        """
-        pass
+    def median(self, nama_kolom):
+        '''Fungsi untuk menentukan nilai tengah dari sekumpulan data.'''
+        try:
+            data = self.get_data(nama_kolom)
+            sorted_data = sorted(data)
+            banyaknya_data = len(sorted_data)
+            if banyaknya_data % 2 == 1:    # jika banyaknya data berjumlah ganjil
+                nilai_median = sorted_data[banyaknya_data // 2]
+                return nilai_median
+            else:                           # jika banyaknya data berjumlah genap
+                nilai_median = (sorted_data[banyaknya_data // 2 - 1] + sorted_data[banyaknya_data // 2]) / 2
+                return nilai_median
+        except:
+            print("Kolom atau data tidak valid")
 
-    def modus(self):
-        """ 
-        Marche
-        """
-        pass
-
+    def modus(self, nama_kolom):
+        '''Fungsi untuk menentukan nilai yang paling sering muncul dari sekumpulan data.'''
+        try:
+            nilai = self.get_data(nama_kolom)
+            frekuensi = {}
+            for value in nilai:
+                if value in frekuensi:
+                    frekuensi[value] += 1
+                else:
+                    frekuensi[value] = 1
+            modus = max(frekuensi, key=frekuensi.get)
+            frekuensi_modus = frekuensi[modus]
+            return modus, frekuensi_modus
+        except:
+            print("Kolom atau data tidak valid")
+            
     def varians_sample(self, nama_kolom):
        """Rumus: s² = (1/(n-1)) * Σ(x_i - x̄)²"""
        data = self.get_data(nama_kolom) 
@@ -102,23 +120,15 @@ class StatisticMethod:
         except:
             print("Kolom atau data tidak valid!")
 
-    def simpangan_rata_rata(self):
-        """
-        Anugrah
-        """
-        pass
+    def mean_deviation(self, nama_kolom):
+        rata_rata = self.mean(nama_kolom)
+        nilai = self.get_data(nama_kolom)
+        n = len(nilai)
+        total_deviasi = 0
+        for x in nilai:
+            deviasi = abs(x - rata_rata)
+            total_deviasi += deviasi 
 
-    def kurtosis(self, nama_kolom):
-        try:
-            n = len(self.get_data(nama_kolom))
-            mean = self.mean(nama_kolom)
-            std_dev = self.standard_deviation(nama_kolom)
-
-            # Menghitung kurtosis
-            kurtosis = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 4) - 3
-            return kurtosis
-        except:
-            print("Kolom atau data tidak valid!")
-
-#var1 = StatisticMethod("SAMPEL NILAI PROJEK ALGORITMA.xlsx")
-#print(var1.mean("Matematika"))
+        simpangan_rata = total_deviasi / n
+        
+        return simpangan_rata
