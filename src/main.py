@@ -108,11 +108,17 @@ class StatisticMethod:
         """
         pass
 
-    def skewness(self):
-        """
-        Nadia
-        """
-        rerata = self.mean()
+    def skewness(self, nama_kolom):
+        try:
+            n = len(self.get_data(nama_kolom))
+            mean = self.mean(nama_kolom)
+            std_dev = self.standard_deviation(nama_kolom)
+
+            # Menghitung skewness
+            skewness = (1/n) * sum(((self[nama_kolom] - mean) / std_dev) ** 3)
+            return skewness
+        except:
+            print("Kolom atau data tidak valid!")
 
     def mean_deviation(self, nama_kolom):
         rata_rata = self.mean(nama_kolom)
