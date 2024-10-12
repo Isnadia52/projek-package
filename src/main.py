@@ -62,16 +62,20 @@ class StatisticMethod:
        return varians 
     
     def varians(self, nama_kolom, jenis_varians):
-        if jenis_varians == 'sampel':
-            return self.varians_sample(nama_kolom)
-        elif jenis_varians == 'populasi':
-            return self.varians_population(nama_kolom)
-        else:
-            raise ValueError("Jenis Varians tidak valid. Gunakan 'sampel' atau 'populasi'  ")
+        try: 
+             if jenis_varians == 'sampel':
+                return self.varians_sample(nama_kolom)
+             elif jenis_varians == 'populasi':
+                return self.varians_population(nama_kolom)
+             else:
+               raise ValueError("Jenis Varians tidak valid. Gunakan 'sampel' atau 'populasi'  ")
+        except:
+            print('Kolom atau data tidak valid! ')
+             
         
     def standard_deviation(self, nama_kolom):
         """Menghitung simpangan baku dari varians"""
-        varians = self.varians_sample(nama_kolom)
+        varians = self.hitung_varians_sampel(nama_kolom)
         return varians ** 0.5  # Akar kuadrat
 
     def desil(self):
