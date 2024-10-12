@@ -75,7 +75,7 @@ class StatisticMethod:
         
     def standard_deviation(self, nama_kolom):
         """Menghitung simpangan baku dari varians"""
-        varians = self.hitung_varians_sampel(nama_kolom)
+        varians = self.varians_sample(nama_kolom)
         return varians ** 0.5  # Akar kuadrat
 
     def desil(self):
