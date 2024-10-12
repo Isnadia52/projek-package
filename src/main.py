@@ -53,45 +53,52 @@ class StatisticMethod:
         """
         pass
 
-    def desil(self, nama_kolom,k):
-        data = self.get_data(nama_kolom)
-        N = len(data)
-        '''Rumus untuk menghitung posisi desil ke-k:
-        P = k * (N + 1) / 10 '''
-        posisi = k * (N + 1) / 10
+    def decile(self, nama_kolom,k):
+        try:
+            '''Rumus untuk menghitung posisi desil ke-k:
+            P = k * (N + 1) / 10 '''
+            data = self.get_data(nama_kolom)
+            N = len(data)
         
-        posisi_bawah = int(posisi) - 1
-        posisi_atas = posisi_bawah + 1 
-        
-        # Jika posisi tepat pada data, kembalikan nilainya
-        if posisi.is_integer():
-            return data[posisi_bawah]
+            posisi = k * (N + 1) / 10
+            
+            posisi_bawah = int(posisi) - 1
+            posisi_atas = posisi_bawah + 1 
+            
+            # Jika posisi tepat pada data, kembalikan nilainya
+            if posisi.is_integer():
+                return data[posisi_bawah]
 
-        if posisi_atas < N: 
-            nilai_bawah = data[posisi_bawah]
-            nilai_atas = data[posisi_atas]
-            interpolasi = nilai_bawah + (posisi - (posisi_bawah + 1)) * (nilai_atas - nilai_bawah)
-            return interpolasi
-        else:
-            return data[posisi_bawah] 
-        
+            if posisi_atas < N: 
+                nilai_bawah = data[posisi_bawah]
+                nilai_atas = data[posisi_atas]
+                interpolasi = nilai_bawah + (posisi - (posisi_bawah + 1)) * (nilai_atas - nilai_bawah)
+                return interpolasi
+            else:
+                return data[posisi_bawah]
+        except:
+            print("kolom atau data tidak valid")
+            
 
-    def kuartil(self, nama_kolom):
-        data = self.get_data(nama_kolom)
-        data.sort()
-        N = len(data)
+    def quartile(self, nama_kolom):
+        try:
+            data = self.get_data(nama_kolom)
+            data.sort()
+            N = len(data)
 
-        # Menghitung kuartil
-        if N % 2 == 0:
-            Q1 = (data[N // 4 - 1] + data[N // 4]) / 2
-            Q2 = (data[N // 2 - 1] + data[N // 2]) / 2
-            Q3 = (data[3 * (N // 4) - 1] + data[3 * (N // 4)]) / 2
-        else:
-            Q1 = data[N // 4]
-            Q2 = data[N // 2]
-            Q3 = data[3 * (N // 4)]
+            # Menghitung kuartil
+            if N % 2 == 0:
+                Q1 = (data[N // 4 - 1] + data[N // 4]) / 2
+                Q2 = (data[N // 2 - 1] + data[N // 2]) / 2
+                Q3 = (data[3 * (N // 4) - 1] + data[3 * (N // 4)]) / 2
+            else:
+                Q1 = data[N // 4]
+                Q2 = data[N // 2]
+                Q3 = data[3 * (N // 4)]
 
-        return Q1, Q2, Q3
+            return Q1, Q2, Q3
+        except:
+            print("kolom atau data tidak valid")
 
     def simpangan_baku(self):
         """
